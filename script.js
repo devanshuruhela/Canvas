@@ -197,21 +197,22 @@ loadStorageBtn.addEventListener('click', () => {
 
 // Clear Local Storage
 clearStorageBtn.addEventListener('click', () => {
-
+  localStorage.removeItem('savedcanvas')
   // Active Tool
   activeToolEl.textContent = 'Local Storage Cleared';
   setTimeout(switchToBrush, 1500);
 });
 
-// // Download Image
-// downloadBtn.addEventListener('click', () => {
+// Download Image
+downloadBtn.addEventListener('click', () => {
+  downloadBtn.href = canvas.toDataURL('image/jpeg' ,1);
+  downloadBtn.download = 'canvas.jpeg'
+  // Active Tool
+  activeToolEl.textContent = 'Image File Saved';
+  setTimeout(switchToBrush, 1500);
+});
 
-//   // Active Tool
-//   activeToolEl.textContent = 'Image File Saved';
-//   setTimeout(switchToBrush, 1500);
-// });
-
-// // Event Listener
+// Event Listener
 brushIcon.addEventListener('click', switchToBrush);
 
 // On Load
